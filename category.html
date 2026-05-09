@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DE-Clut | Category</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html#home" aria-label="DE-Clut home">
+        <span class="brand-mark">D</span>
+        <span>DE-Clut</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#categories">Categories</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#contact">Contact Us</a>
+      </nav>
+
+      <div class="login-actions" aria-label="Login options">
+        <a class="login-link" href="index.html#login-renter">NestSeeker Login</a>
+        <a class="login-link login-link-dark" href="index.html#login-lender">ShelfPartner Login</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="category-hero" data-category-hero>
+        <div>
+          <a class="back-link" href="index.html#categories">Back to categories</a>
+          <p class="eyebrow">Choose an item to rent or list</p>
+          <h1 data-category-title>Category</h1>
+          <p data-category-intro></p>
+        </div>
+        <aside class="cart-summary" aria-label="Cart summary">
+          <span>Rent cart</span>
+          <strong><span data-cart-count>0</span> items</strong>
+        </aside>
+      </section>
+
+      <section class="items-band" aria-labelledby="items-title">
+        <div class="section-heading">
+          <p class="eyebrow">Available options</p>
+          <h2 id="items-title">Pick what you need</h2>
+        </div>
+        <div class="item-grid" data-item-grid></div>
+      </section>
+    </main>
+
+    <div class="toast" role="status" aria-live="polite" data-toast></div>
+
+    <footer>
+      <span>DE-Clut</span>
+      <span>Rent more. Own less. Live ready.</span>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="category.js"></script>
+  </body>
+</html>
