@@ -11,3 +11,17 @@ The site includes:
   - ShelfPartner for people who rent out items
 
 Open `index.html` directly in a browser, or deploy the folder to any static host.
+
+## Local Deployment
+
+Run the local deployment server:
+
+```bash
+npm run deploy:local
+```
+
+Then open:
+
+```text
+http://localhost:4173
+```
