@@ -752,6 +752,68 @@ h3 {
   border: 1px solid var(--line);
 }
 
+.otp-card {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  background: #ecf5f2;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 8px;
+}
+
+.otp-card strong,
+.otp-card span,
+.otp-card p {
+  display: block;
+}
+
+.otp-card span,
+.otp-card p {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.otp-card p {
+  margin: 0;
+  font-weight: 850;
+}
+
+.otp-actions {
+  display: grid;
+  grid-template-columns: auto minmax(140px, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.otp-actions input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 13px;
+  color: var(--ink);
+  background: #fbfcfc;
+  border: 1px solid #cad4dc;
+  border-radius: 7px;
+  font: inherit;
+}
+
+.otp-actions button:disabled,
+.otp-actions input:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+.otp-pending {
+  color: #8a5a00 !important;
+}
+
+.otp-verified {
+  color: var(--teal) !important;
+}
+
+.otp-error {
+  color: #b42318 !important;
+}
+
 footer {
   display: flex;
   justify-content: space-between;
@@ -840,6 +902,10 @@ footer {
 
   .wide-field {
     grid-column: auto;
+  }
+
+  .otp-actions {
+    grid-template-columns: 1fr;
   }
 
   .category-card {

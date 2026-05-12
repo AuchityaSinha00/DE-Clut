@@ -82,8 +82,20 @@ function createDeclutDialog() {
         </label>
         <label>
           Aadhaar Number
-          <input name="aadhaar" inputmode="numeric" maxlength="12" placeholder="12-digit ID" required />
+          <input name="aadhaar" inputmode="numeric" maxlength="12" pattern="[0-9]{12}" placeholder="12-digit ID" data-aadhaar-input required />
         </label>
+        <div class="otp-card wide-field" data-otp-card>
+          <div>
+            <strong>Aadhaar OTP verification</strong>
+            <span data-otp-help>Enter a 12-digit Aadhaar number, then request an OTP.</span>
+          </div>
+          <div class="otp-actions">
+            <button class="secondary-form-button" type="button" data-send-otp>Send OTP</button>
+            <input name="aadhaarOtp" inputmode="numeric" maxlength="6" placeholder="Enter OTP" data-otp-input disabled required />
+            <button class="primary-form-button" type="button" data-verify-otp disabled>Verify OTP</button>
+          </div>
+          <p data-otp-status>OTP not verified yet.</p>
+        </div>
         <label>
           Phone Number
           <input name="phone" type="tel" autocomplete="tel" required />
@@ -107,6 +119,59 @@ function createDeclutDialog() {
 
   document.body.append(dialog);
 
+  let generatedOtp = "";
+  let aadhaarVerified = false;
+  const aadhaarInput = dialog.querySelector("[data-aadhaar-input]");
+  const otpInput = dialog.querySelector("[data-otp-input]");
+  const sendOtpButton = dialog.querySelector("[data-send-otp]");
+  const verifyOtpButton = dialog.querySelector("[data-verify-otp]");
+  const otpStatus = dialog.querySelector("[data-otp-status]");
+  const otpHelp = dialog.querySelector("[data-otp-help]");
+
+  function resetOtp() {
+    generatedOtp = "";
+    aadhaarVerified = false;
+    otpInput.value = "";
+    otpInput.disabled = true;
+    verifyOtpButton.disabled = true;
+    otpStatus.textContent = "OTP not verified yet.";
+    otpStatus.className = "";
+    otpHelp.textContent = "Enter a 12-digit Aadhaar number, then request an OTP.";
+  }
+
+  aadhaarInput.addEventListener("input", resetOtp);
+
+  sendOtpButton.addEventListener("click", () => {
+    if (!aadhaarInput.checkValidity()) {
+      aadhaarInput.reportValidity();
+      return;
+    }
+
+    generatedOtp = String(Math.floor(100000 + Math.random() * 900000));
+    aadhaarVerified = false;
+    otpInput.disabled = false;
+    verifyOtpButton.disabled = false;
+    otpInput.focus();
+    otpStatus.textContent = `Demo OTP sent: ${generatedOtp}`;
+    otpStatus.className = "otp-pending";
+    otpHelp.textContent = "Prototype only: real Aadhaar OTP needs an authorized backend integration.";
+  });
+
+  verifyOtpButton.addEventListener("click", () => {
+    if (otpInput.value.trim() === generatedOtp) {
+      aadhaarVerified = true;
+      otpStatus.textContent = "Aadhaar OTP verified.";
+      otpStatus.className = "otp-verified";
+      otpInput.disabled = true;
+      verifyOtpButton.disabled = true;
+      return;
+    }
+
+    aadhaarVerified = false;
+    otpStatus.textContent = "Incorrect OTP. Please try again.";
+    otpStatus.className = "otp-error";
+  });
+
   dialog.querySelectorAll("[data-close-dialog]").forEach((button) => {
     button.addEventListener("click", () => closeDialog(dialog));
   });
@@ -121,6 +186,12 @@ function createDeclutDialog() {
     event.preventDefault();
     const form = event.currentTarget;
     if (!form.reportValidity()) {
+      return;
+    }
+    if (!aadhaarVerified) {
+      otpStatus.textContent = "Please verify Aadhaar OTP before creating your profile.";
+      otpStatus.className = "otp-error";
+      sendOtpButton.focus();
       return;
     }
     closeDialog(dialog);
