@@ -120,8 +120,9 @@ img {
 
 .login-link-dark {
   color: var(--white);
-  background: var(--navy);
-  border-color: var(--navy);
+  background: linear-gradient(135deg, var(--navy), var(--teal));
+  border-color: transparent;
+  box-shadow: 0 10px 24px rgba(15, 118, 110, 0.22);
 }
 
 .hero {
@@ -326,10 +327,20 @@ h3 {
   background: #ecf5f2;
 }
 
+.start-band {
+  background:
+    linear-gradient(135deg, rgba(236, 245, 242, 0.96), rgba(255, 248, 235, 0.96)),
+    url("https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1800&q=80") center / cover;
+}
+
 .role-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
+}
+
+.start-panel {
+  max-width: 820px;
 }
 
 .role-card {
@@ -358,6 +369,12 @@ h3 {
 
 .role-card h3 {
   font-size: clamp(2rem, 4vw, 3.1rem);
+}
+
+.start-profile-button {
+  margin-top: 12px;
+  width: fit-content;
+  cursor: pointer;
 }
 
 .login-form {
@@ -617,6 +634,124 @@ h3 {
   transform: translateY(0);
 }
 
+.modal {
+  width: min(920px, calc(100vw - 28px));
+  max-height: min(88vh, 860px);
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.modal::backdrop {
+  background: rgba(23, 32, 38, 0.68);
+  backdrop-filter: blur(8px);
+}
+
+.modal-panel {
+  max-height: min(88vh, 860px);
+  overflow: auto;
+  padding: clamp(20px, 4vw, 34px);
+  background: var(--white);
+}
+
+.modal-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.modal-head h2 {
+  margin-bottom: 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.icon-close {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.form-grid label {
+  display: grid;
+  gap: 7px;
+  color: #33404a;
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 13px;
+  color: var(--ink);
+  background: #fbfcfc;
+  border: 1px solid #cad4dc;
+  border-radius: 7px;
+  font: inherit;
+}
+
+.form-grid textarea {
+  min-height: 86px;
+  padding: 12px 13px;
+  resize: vertical;
+}
+
+.wide-field {
+  grid-column: 1 / -1;
+}
+
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.primary-form-button,
+.secondary-form-button {
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 7px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+}
+
+.primary-form-button {
+  color: var(--ink);
+  background: var(--gold);
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.secondary-form-button {
+  color: var(--teal);
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
 footer {
   display: flex;
   justify-content: space-between;
@@ -698,8 +833,13 @@ footer {
   .hero-panel,
   .category-grid,
   .item-grid,
+  .form-grid,
   .role-grid {
     grid-template-columns: 1fr;
+  }
+
+  .wide-field {
+    grid-column: auto;
   }
 
   .category-card {

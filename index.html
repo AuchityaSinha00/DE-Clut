@@ -21,9 +21,8 @@
         <a href="#contact">Contact Us</a>
       </nav>
 
-      <div class="login-actions" aria-label="Login options">
-        <a class="login-link" href="#login-renter">NestSeeker Login</a>
-        <a class="login-link login-link-dark" href="#login-lender">ShelfPartner Login</a>
+      <div class="login-actions" aria-label="Account action">
+        <a class="login-link login-link-dark" href="#start" data-start-declut>Start De-Clutting</a>
       </div>
     </header>
 
@@ -39,7 +38,7 @@
           </p>
           <div class="hero-actions">
             <a class="primary-button" href="#categories">Browse rentals</a>
-            <a class="secondary-button" href="#login-lender">Start earning</a>
+            <a class="secondary-button" href="#start" data-start-declut>Start De-Clutting</a>
           </div>
         </div>
 
@@ -140,51 +139,24 @@
         </div>
       </section>
 
-      <section class="roles-band" aria-labelledby="roles-title">
+      <section class="roles-band start-band" id="start" aria-labelledby="roles-title">
         <div class="section-heading">
-          <p class="eyebrow">Two ways to join</p>
-          <h2 id="roles-title">Choose your DE-Clut doorway</h2>
+          <p class="eyebrow">One account, two powers</p>
+          <h2 id="roles-title">Start De-Clutting</h2>
         </div>
 
-        <div class="role-grid">
-          <article class="role-card" id="login-renter">
-            <span class="role-badge">Need items</span>
-            <h3>NestSeeker</h3>
+        <div class="start-panel">
+          <article class="role-card role-card-accent">
+            <span class="role-badge">Borrow and lend</span>
+            <h3>Your unified DE-Clut profile</h3>
             <p>
-              For people setting up a room, flat, event, work corner, or temporary home without buying
-              every item upfront.
+              One account lets you borrow useful items for your home and lend idle products when
+              they are ready to earn. Add your details once, then choose Borrow or Lend inside every
+              category.
             </p>
-            <form class="login-form" aria-label="NestSeeker login form">
-              <label>
-                Email or mobile
-                <input type="text" placeholder="you@example.com" />
-              </label>
-              <label>
-                Password
-                <input type="password" placeholder="Enter password" />
-              </label>
-              <button type="button">Login as NestSeeker</button>
-            </form>
-          </article>
-
-          <article class="role-card role-card-accent" id="login-lender">
-            <span class="role-badge">Rent out items</span>
-            <h3>ShelfPartner</h3>
-            <p>
-              For owners, shops, and households ready to earn from clean, useful products sitting idle
-              on shelves or in storage.
-            </p>
-            <form class="login-form" aria-label="ShelfPartner login form">
-              <label>
-                Business email or mobile
-                <input type="text" placeholder="partner@declut.com" />
-              </label>
-              <label>
-                Password
-                <input type="password" placeholder="Enter password" />
-              </label>
-              <button type="button">Login as ShelfPartner</button>
-            </form>
+            <button class="primary-button start-profile-button" type="button" data-start-declut>
+              Start De-Clutting
+            </button>
           </article>
         </div>
       </section>
@@ -236,5 +208,6 @@
       <span>DE-Clut</span>
       <span>Rent more. Own less. Live ready.</span>
     </footer>
+    <script src="app.js"></script>
   </body>
 </html>

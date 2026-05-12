@@ -21,9 +21,8 @@
         <a href="index.html#contact">Contact Us</a>
       </nav>
 
-      <div class="login-actions" aria-label="Login options">
-        <a class="login-link" href="index.html#login-renter">NestSeeker Login</a>
-        <a class="login-link login-link-dark" href="index.html#login-lender">ShelfPartner Login</a>
+      <div class="login-actions" aria-label="Account action">
+        <a class="login-link login-link-dark" href="#start" data-start-declut>Start De-Clutting</a>
       </div>
     </header>
 
@@ -31,12 +30,12 @@
       <section class="category-hero" data-category-hero>
         <div>
           <a class="back-link" href="index.html#categories">Back to categories</a>
-          <p class="eyebrow">Choose an item to rent or list</p>
+          <p class="eyebrow">Choose an item to borrow or lend</p>
           <h1 data-category-title>Category</h1>
           <p data-category-intro></p>
         </div>
-        <aside class="cart-summary" aria-label="Cart summary">
-          <span>Rent cart</span>
+        <aside class="cart-summary" aria-label="Borrow cart summary">
+          <span>Borrow cart</span>
           <strong><span data-cart-count>0</span> items</strong>
         </aside>
       </section>
@@ -51,6 +50,75 @@
     </main>
 
     <div class="toast" role="status" aria-live="polite" data-toast></div>
+    <dialog class="modal" data-lend-dialog>
+      <form class="modal-panel" method="dialog" data-lend-form>
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow" data-lend-kicker>Lend on DE-Clut</p>
+            <h2 data-lend-title>Lend item</h2>
+          </div>
+          <button class="icon-close" type="button" data-close-lend aria-label="Close">x</button>
+        </div>
+
+        <div class="form-grid">
+          <label class="wide-field">
+            Item title
+            <input name="itemTitle" data-lend-item readonly />
+          </label>
+          <label>
+            Item condition
+            <select name="condition" data-condition-select required></select>
+          </label>
+          <label data-working-field>
+            Working condition
+            <select name="workingCondition">
+              <option value="">Select working condition</option>
+              <option>Excellent</option>
+              <option>Good</option>
+              <option>Average</option>
+              <option>Needs minor service</option>
+            </select>
+          </label>
+          <label data-expiry-field hidden>
+            Expiry date
+            <input name="expiryDate" type="date" />
+          </label>
+          <label>
+            Lending rate
+            <input name="rate" placeholder="Example: Rs. 99/day" required />
+          </label>
+          <label>
+            Security deposit
+            <input name="deposit" placeholder="Example: Rs. 500 refundable" />
+          </label>
+          <label>
+            Available from
+            <input name="availableFrom" type="date" required />
+          </label>
+          <label>
+            Minimum rental period
+            <input name="minimumPeriod" placeholder="Example: 3 days" required />
+          </label>
+          <label class="wide-field">
+            Pickup or delivery location
+            <input name="handoverLocation" placeholder="Area, city, landmark" required />
+          </label>
+          <label class="wide-field">
+            Item picture
+            <input name="itemPhoto" type="file" accept="image/*" />
+          </label>
+          <label class="wide-field">
+            Notes for borrower
+            <textarea name="notes" rows="3" placeholder="Brand, age, accessories included, cleaning status, usage rules"></textarea>
+          </label>
+        </div>
+
+        <div class="modal-actions">
+          <button class="secondary-form-button" type="button" data-close-lend>Cancel</button>
+          <button class="primary-form-button" type="submit">Submit lend listing</button>
+        </div>
+      </form>
+    </dialog>
 
     <footer>
       <span>DE-Clut</span>
@@ -58,6 +126,7 @@
     </footer>
 
     <script src="data.js"></script>
+    <script src="app.js"></script>
     <script src="category.js"></script>
   </body>
 </html>
