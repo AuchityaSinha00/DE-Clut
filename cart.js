@@ -43,10 +43,24 @@ function renderCart() {
 confirmBorrow.addEventListener("click", () => {
   const cart = getCart();
   if (!cart.length) return;
+  const requests = getBorrowRequests();
+  const batchId = crypto.randomUUID ? crypto.randomUUID() : String(Date.now());
+  const createdRequests = cart.map((item) => ({
+    id: crypto.randomUUID ? crypto.randomUUID() : `${batchId}-${item.name}`,
+    batchId,
+    itemName: item.name,
+    category: item.category,
+    price: item.price,
+    listingId: item.listingId || "",
+    status: "Pending lender approval",
+    fulfillment: "Pickup",
+    payment: "Pay on pickup",
+    createdAt: new Date().toISOString(),
+  }));
+  setBorrowRequests([...requests, ...createdRequests]);
   addCoins(cart.length * 50, `Confirmed ${cart.length} borrow request(s)`);
   setCart([]);
-  renderCart();
-  showGlobalToast(`${cart.length} borrow request(s) submitted. Coins added.`);
+  window.location.href = `request.html?batch=${batchId}`;
 });
 
 renderCart();

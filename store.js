@@ -4,6 +4,7 @@ const DB_KEYS = {
   profile: "deClutProfile",
   wallet: "deClutWallet",
   transactions: "deClutTransactions",
+  borrowRequests: "deClutBorrowRequests",
 };
 
 function readJson(key, fallback) {
@@ -89,6 +90,14 @@ function getListings() {
 
 function setListings(listings) {
   writeJson(DB_KEYS.listings, listings);
+}
+
+function getBorrowRequests() {
+  return readJson(DB_KEYS.borrowRequests, []);
+}
+
+function setBorrowRequests(requests) {
+  writeJson(DB_KEYS.borrowRequests, requests);
 }
 
 function updateHeaderStats() {

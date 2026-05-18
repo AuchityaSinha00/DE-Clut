@@ -8,6 +8,7 @@ The site includes:
 - 9 visible rental category tiles
 - A unified Start De-Clutting profile flow
 - A borrow cart page
+- Borrow request confirmation and pending lender approval page
 - Lend listings that feed item-specific borrow options
 - A local demo database, coin wallet, and PWA install files
 

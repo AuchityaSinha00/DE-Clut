@@ -7,6 +7,7 @@ The current GitHub Pages version uses browser `localStorage` as a demo database.
 - `deClutProfile`: profile, address, Aadhaar last 4 digits, phone, and photo filename.
 - `deClutListings`: items uploaded through the Lend form, including category, condition, rate, deposit, expiry, working condition, handover location, notes, photo filename, and awarded coins.
 - `deClutCart`: selected borrow listing records.
+- `deClutBorrowRequests`: submitted borrow requests, request status, fulfillment choice, and payment preference.
 - `deClutWallet`: coin balance and redeemed coin total.
 - `deClutTransactions`: coin history for lend uploads, borrow requests, and redemption.
 
