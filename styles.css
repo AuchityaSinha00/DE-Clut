@@ -103,6 +103,46 @@ img {
   gap: 10px;
 }
 
+.coin-chip,
+.cart-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 10px;
+  color: var(--ink);
+  background: #fff8eb;
+  border: 1px solid rgba(246, 184, 75, 0.7);
+  border-radius: 7px;
+  font-size: 0.88rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.cart-pill {
+  min-height: 22px;
+  min-width: 22px;
+  margin-left: 4px;
+  padding: 0 7px;
+  color: var(--white);
+  background: var(--teal);
+  border: 0;
+  font-size: 0.75rem;
+}
+
+.redeem-button {
+  min-height: 34px;
+  padding: 0 12px;
+  color: var(--ink);
+  background: var(--gold);
+  border: 2px solid var(--ink);
+  border-radius: 7px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
 .login-link {
   min-height: 40px;
   display: inline-flex;
@@ -609,6 +649,64 @@ h3 {
   border: 2px solid var(--ink);
 }
 
+.borrow-list,
+.cart-list {
+  display: grid;
+  gap: 14px;
+}
+
+.borrow-option,
+.cart-row,
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+  background: #fbfcfc;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.borrow-option h3,
+.cart-row h3 {
+  margin-bottom: 4px;
+  font-size: 1.15rem;
+}
+
+.borrow-option p,
+.cart-row p,
+.borrow-option span,
+.cart-row span,
+.empty-state span {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.empty-state {
+  display: grid;
+  justify-content: start;
+}
+
+.cart-page {
+  min-height: calc(100svh - 154px);
+  padding: clamp(54px, 8vw, 96px) clamp(18px, 5vw, 72px);
+}
+
+.cart-page h1 {
+  color: var(--ink);
+  font-size: clamp(2.4rem, 7vw, 5.4rem);
+}
+
+.cart-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 22px;
+}
+
 .toast {
   position: fixed;
   right: clamp(16px, 4vw, 38px);
@@ -752,6 +850,24 @@ h3 {
   border: 1px solid var(--line);
 }
 
+.check-field {
+  min-height: 46px;
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px !important;
+  align-self: end;
+  padding: 0 10px;
+  background: #fbfcfc;
+  border: 1px solid #cad4dc;
+  border-radius: 7px;
+}
+
+.check-field input {
+  width: 18px;
+  min-height: 18px;
+}
+
 .otp-card {
   display: grid;
   gap: 12px;
@@ -871,6 +987,9 @@ footer {
 
   .login-actions,
   .hero-actions,
+  .borrow-option,
+  .cart-row,
+  .cart-actions,
   footer {
     align-items: stretch;
     flex-direction: column;

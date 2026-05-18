@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DE-Clut | Category</title>
     <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="manifest" href="manifest.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -19,9 +20,12 @@
         <a href="index.html#categories">Categories</a>
         <a href="index.html#about">About Us</a>
         <a href="index.html#contact">Contact Us</a>
+        <a href="cart.html">Cart <span class="cart-pill" data-cart-pill>0</span></a>
       </nav>
 
       <div class="login-actions" aria-label="Account action">
+        <span class="coin-chip">Coins: <strong data-coin-count>0</strong></span>
+        <button class="redeem-button" type="button" data-redeem-button hidden>Redeem</button>
         <a class="login-link login-link-dark" href="#start" data-start-declut>Start De-Clutting</a>
       </div>
     </header>
@@ -83,6 +87,10 @@
             Expiry date
             <input name="expiryDate" type="date" />
           </label>
+          <label class="check-field" data-expiry-na-field hidden>
+            <input name="expiryNotApplicable" type="checkbox" data-expiry-na />
+            Not Applicable
+          </label>
           <label>
             Lending rate
             <input name="rate" placeholder="Example: Rs. 99/day" required />
@@ -115,8 +123,20 @@
 
         <div class="modal-actions">
           <button class="secondary-form-button" type="button" data-close-lend>Cancel</button>
-          <button class="primary-form-button" type="submit">Submit lend listing</button>
+          <button class="primary-form-button" type="submit">SUBMIT</button>
         </div>
+      </form>
+    </dialog>
+    <dialog class="modal" data-borrow-dialog>
+      <form class="modal-panel" method="dialog">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow">Borrow from community listings</p>
+            <h2 data-borrow-title>Borrow item</h2>
+          </div>
+          <button class="icon-close" type="button" data-close-borrow aria-label="Close">x</button>
+        </div>
+        <div class="borrow-list" data-borrow-list></div>
       </form>
     </dialog>
 
@@ -126,6 +146,7 @@
     </footer>
 
     <script src="data.js"></script>
+    <script src="store.js"></script>
     <script src="app.js"></script>
     <script src="category.js"></script>
   </body>

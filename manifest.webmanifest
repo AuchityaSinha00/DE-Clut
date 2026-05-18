@@ -1,0 +1,16 @@
+{
+  "name": "DE-Clut",
+  "short_name": "DE-Clut",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f7f4ef",
+  "theme_color": "#0f766e",
+  "description": "Borrow and lend home essentials through DE-Clut.",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

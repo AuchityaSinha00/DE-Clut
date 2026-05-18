@@ -194,6 +194,21 @@ function createDeclutDialog() {
       sendOtpButton.focus();
       return;
     }
+    const data = new FormData(form);
+    writeJson(DB_KEYS.profile, {
+      firstName: data.get("firstName"),
+      lastName: data.get("lastName"),
+      email: data.get("email"),
+      country: data.get("country"),
+      city: data.get("city"),
+      pin: data.get("pin"),
+      location: data.get("location"),
+      aadhaarLast4: String(data.get("aadhaar")).slice(-4),
+      phone: data.get("phone"),
+      address: data.get("address"),
+      photoName: data.get("photo")?.name || "",
+      createdAt: new Date().toISOString(),
+    });
     closeDialog(dialog);
     showGlobalToast("Profile saved for demo. You can now Borrow or Lend on DE-Clut.");
   });
@@ -207,3 +222,7 @@ document.querySelectorAll("[data-start-declut]").forEach((button) => {
     openDialog(document.querySelector("[data-declut-dialog]"));
   });
 });
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js").catch(() => {});
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DE-Clut | Borrow Cart</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html#home" aria-label="DE-Clut home">
+        <span class="brand-mark">D</span>
+        <span>DE-Clut</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#categories">Categories</a>
+        <a href="cart.html">Cart <span class="cart-pill" data-cart-pill>0</span></a>
+      </nav>
+      <div class="login-actions" aria-label="Account action">
+        <span class="coin-chip">Coins: <strong data-coin-count>0</strong></span>
+        <button class="redeem-button" type="button" data-redeem-button hidden>Redeem</button>
+        <a class="login-link login-link-dark" href="#start" data-start-declut>Start De-Clutting</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="cart-page">
+        <div class="section-heading">
+          <p class="eyebrow">Borrow cart</p>
+          <h1>Your selected items</h1>
+          <p>Items you choose from customer listings appear here before checkout.</p>
+        </div>
+        <div class="cart-list" data-cart-list></div>
+        <div class="cart-actions">
+          <a class="secondary-form-button" href="index.html#categories">Browse more</a>
+          <button class="primary-form-button" type="button" data-confirm-borrow>Confirm borrow request</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>DE-Clut</span>
+      <span>Rent more. Own less. Live ready.</span>
+    </footer>
+
+    <script src="store.js"></script>
+    <script src="app.js"></script>
+    <script src="cart.js"></script>
+  </body>
+</html>

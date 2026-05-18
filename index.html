@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DE-Clut | Rent Home Essentials</title>
     <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="manifest" href="manifest.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -19,9 +20,12 @@
         <a href="#categories">Categories</a>
         <a href="#about">About Us</a>
         <a href="#contact">Contact Us</a>
+        <a href="cart.html">Cart <span class="cart-pill" data-cart-pill>0</span></a>
       </nav>
 
       <div class="login-actions" aria-label="Account action">
+        <span class="coin-chip">Coins: <strong data-coin-count>0</strong></span>
+        <button class="redeem-button" type="button" data-redeem-button hidden>Redeem</button>
         <a class="login-link login-link-dark" href="#start" data-start-declut>Start De-Clutting</a>
       </div>
     </header>
@@ -208,6 +212,7 @@
       <span>DE-Clut</span>
       <span>Rent more. Own less. Live ready.</span>
     </footer>
+    <script src="store.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

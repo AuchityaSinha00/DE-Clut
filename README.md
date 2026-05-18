@@ -6,9 +6,10 @@ The site includes:
 
 - Home, About Us, Contact Us, and category navigation
 - 9 visible rental category tiles
-- Two login paths:
-  - NestSeeker for people who need items
-  - ShelfPartner for people who rent out items
+- A unified Start De-Clutting profile flow
+- A borrow cart page
+- Lend listings that feed item-specific borrow options
+- A local demo database, coin wallet, and PWA install files
 
 Open `index.html` directly in a browser, or deploy the folder to any static host.
 
